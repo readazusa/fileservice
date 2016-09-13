@@ -13,7 +13,6 @@ import java.util.Properties;
 /**
  * Created by 念梓  on 2016/9/13.
  * Email:sunmch@163.com
- * TEL:13913534135
  * author: 念梓
  * des:加载文件路径配置文件
  */
