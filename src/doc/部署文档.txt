@@ -1,0 +1,33 @@
+根据load_file.properties的配置文件
+src_file_path=/file/src/  需求鉴定数据的目录
+des_file_path=/file/des/  对应放到目标的目录   这里的文件路径必须在最后加"/" 斜杠
+
+使用tomcat作为文件的代理:
+配置方式
+      <Host name="localhost"  appBase="webapps"
+            unpackWARs="true" autoDeploy="true">
+
+        <!-- SingleSignOn valve, share authentication between web applications
+             Documentation at: /docs/config/valve.html -->
+        <!--
+        <Valve className="org.apache.catalina.authenticator.SingleSignOn" />
+        -->
+
+        <!-- Access log processes all example.
+             Documentation at: /docs/config/valve.html
+             Note: The pattern used is equivalent to using pattern="common" -->
+        <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
+               prefix="localhost_access_log" suffix=".txt"
+               pattern="%h %l %u %t &quot;%r&quot; %s %b" />
+
+       <Context path="/file" docBase="G:/file/des" />
+
+      </Host>
+
+
+在tomcat的  server.xml文件中host节点里 增加 Context 标签
+ <Context path="/file" docBase="G:/file/des" />
+
+ path表示请求的目录
+
+ docBase表示物理文件所在的路径
